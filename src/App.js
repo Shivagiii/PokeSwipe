@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
-
+import Header from './Header';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from '@mui/material/CssBaseline';
+import DisplayBlock from './DisplayBlock';
 function App() {
+
+  const [isDarkMode,setDarkMode]= useState(false);
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: isDarkMode ? 'dark' : 'light', // handle the dark mode state on toggle
+    },
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <ThemeProvider theme={darkTheme}>
+       <CssBaseline />
+    <div className="App"  >
+     <Header setDarkMode={setDarkMode} isDarkMode={isDarkMode} />
+     <DisplayBlock/>
     </div>
+    </ThemeProvider>
   );
 }
 
