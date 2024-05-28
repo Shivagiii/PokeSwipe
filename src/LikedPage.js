@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
-import "./LikedPage.css";
-import { Box, Grid, Typography, Button } from "@mui/material";
+import React from "react";
+import { Grid, Typography } from "@mui/material";
 import LikedCard from "./LikedCard";
 
 function LikedPage({ Item, likedItems }) {
@@ -9,7 +8,7 @@ function LikedPage({ Item, likedItems }) {
       container
       sx={{ height: "100%", width: "100%", justifyContent: "center" }}
     >
-      <Item sx={{ width: "100%" }}>
+      <Item sx={{ width: "100%", boxShadow: "none" }}>
         <Typography gutterBottom variant="h4" component="div">
           Pokemon you have liked!
         </Typography>{" "}

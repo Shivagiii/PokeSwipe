@@ -1,7 +1,11 @@
-import React from 'react';
-import { Box, Grid, Typography,Button } from "@mui/material";
+import React, { useEffect } from 'react';
+import {  Grid, Typography,Button } from "@mui/material";
 
-function HomePage({Item,setDisplay}) {
+function HomePage({Item,setDisplay,setLikedItems}) {
+  useEffect(()=>{
+    setLikedItems([]);
+  },[])
+
   return (
     <Grid container spacing={2} sx={{ height: "100%" ,justifyContent:"center" }}>
     <Grid item xs={12} >

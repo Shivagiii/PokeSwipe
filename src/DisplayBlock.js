@@ -1,4 +1,4 @@
-import { Box, Grid, styled, Paper, Typography, Button } from "@mui/material";
+import { Box, styled, Paper } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import "./DisplayBlock.css";
 import axios from "axios";
@@ -52,7 +52,7 @@ function DisplayBlock({display,setDisplay}) {
   return (
     <Box className="mainBody">
       {display === "home" ? (
-        <HomePage Item={Item} setDisplay={setDisplay}/>
+        <HomePage Item={Item} setDisplay={setDisplay} setLikedItems={setLikedItems}/>
       ) : display === "liked" ? (
         <LikedPage Item={Item} likedItems={likedItems} setDisplay={setDisplay}/>
       ) : (

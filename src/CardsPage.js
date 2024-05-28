@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Box, Grid, Typography, Button } from "@mui/material";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+import React, {  useEffect } from "react";
+import { Card,CardMedia, Grid, Typography, Button } from "@mui/material";
+
 
 function CardsPage({ Item, pokemonData, likedItems, setLikedItems }) {
   useEffect(() => {
@@ -16,6 +14,9 @@ function CardsPage({ Item, pokemonData, likedItems, setLikedItems }) {
     ]);
     console.log(likedItems);
   };
+  const onDisLiked = () => {
+    setLikedItems([...likedItems])
+  }
   return (
     <Grid
       container
@@ -50,7 +51,7 @@ function CardsPage({ Item, pokemonData, likedItems, setLikedItems }) {
             sx={{ height: "60px", display: "flex" }}
             justifyContent={"center"}
           >
-            <Typography gutterBottom variant="h4" component="div">
+            <Typography gutterBottom variant="h4" component="div" textTransform={"capitalize"}>
               {pokemonData.name}
             </Typography>{" "}
           </Grid>
@@ -59,7 +60,7 @@ function CardsPage({ Item, pokemonData, likedItems, setLikedItems }) {
               {pokemonData ? (
                 pokemonData.abilities.map((a) => (
                   <Grid item xs>
-                    <Item sx={{ bgcolor: "yellow" }}>
+                    <Item sx={{ bgcolor: "warning.light" }}>
                       <Typography gutterBottom variant="body2" component="div">
                         {a.ability.name}
                       </Typography>
@@ -72,7 +73,7 @@ function CardsPage({ Item, pokemonData, likedItems, setLikedItems }) {
               {pokemonData ? (
                 pokemonData.types.map((t) => (
                   <Grid xs item >
-                    <Item sx={{ bgcolor: "orange" }}>
+                    <Item sx={{ bgcolor: "warning.dark" }}>
                       <Typography gutterBottom variant="body2" component="div">
                         {t.type.name}
                       </Typography>
@@ -93,7 +94,7 @@ function CardsPage({ Item, pokemonData, likedItems, setLikedItems }) {
             
           >
             <Grid item xs={3} margin={2}>
-              <Button variant="contained" color="error">
+              <Button variant="contained" color="error" onClick={onDisLiked}>
                 Dislike
               </Button>
             </Grid>
