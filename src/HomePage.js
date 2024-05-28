@@ -1,13 +1,13 @@
 import React from 'react';
 import { Box, Grid, Typography,Button } from "@mui/material";
 
-function HomePage({Item}) {
+function HomePage({Item,setDisplay}) {
   return (
     <Grid container spacing={2} sx={{ height: "100%" ,justifyContent:"center" }}>
     <Grid item xs={12} >
       <Item>
         <Typography gutterBottom variant="h4" component="div">
-          How to Play
+          How to Play PokeSwipe
         </Typography>{" "}
       </Item>
     </Grid>
@@ -19,10 +19,10 @@ function HomePage({Item}) {
         </Typography>
       </Item>
     </Grid>
-    <Grid item xs={2} >
-      <Item sx={{ height: "100%"}}><Typography gutterBottom variant="body2" component="div">
-      <Button variant="contained">Let's Go!</Button> 
-        </Typography>{" "}</Item>
+    <Grid item xs={10} sm={3} >
+      <Item sx={{   width:"100%",boxShadow: "none",}}>
+      <Button variant="contained" fullWidth color="success" onClick={() => setDisplay("swipe")}>Let's Go!</Button> 
+       </Item>
     </Grid>
     </Grid>
   )

@@ -7,6 +7,7 @@ import DisplayBlock from './DisplayBlock';
 function App() {
 
   const [isDarkMode,setDarkMode]= useState(false);
+  const [display, setDisplay] = useState("home");
 
   const darkTheme = createTheme({
     palette: {
@@ -17,8 +18,8 @@ function App() {
     <ThemeProvider theme={darkTheme}>
        <CssBaseline />
     <div className="App"  >
-     <Header setDarkMode={setDarkMode} isDarkMode={isDarkMode} />
-     <DisplayBlock/>
+     <Header setDarkMode={setDarkMode} isDarkMode={isDarkMode} setDisplay={setDisplay}/>
+     <DisplayBlock setDisplay={setDisplay} display={display}/>
     </div>
     </ThemeProvider>
   );
