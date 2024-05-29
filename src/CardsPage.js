@@ -7,14 +7,14 @@ function CardsPage({ Item, pokemonData, likedItems, setLikedItems }) {
     localStorage.setItem("likedItems", JSON.stringify(likedItems));
   }, [likedItems]);
 
-  const onLiked = () => {
-    setLikedItems([
+  const onLiked = () => {           //on every like , name and url of pokemon is being stored here 
+    setLikedItems([                 //and can be seen by clicking on the like button
       ...likedItems,
       { name: pokemonData.name, img: pokemonData.img.front_default },
     ]);
     console.log(likedItems);
   };
-  const onDisLiked = () => {
+  const onDisLiked = () => {        //on clicking dislike , just re-rendering likeItems so that new pokemon is fetched
     setLikedItems([...likedItems])
   }
   return (
@@ -24,7 +24,7 @@ function CardsPage({ Item, pokemonData, likedItems, setLikedItems }) {
       sx={{ height: "100%", justifyContent: "center" }}
     >
       <Grid item xs={12} md={4}>
-        <Item sx={{ height: "100%" }}>
+        <Item sx={{ minHeight:"40vh" }}>
           <Card
             sx={{
               height: "100%",
@@ -44,11 +44,11 @@ function CardsPage({ Item, pokemonData, likedItems, setLikedItems }) {
         </Item>
       </Grid>
       <Grid item xs={12} md={8} >
-        <Item sx={{ height: "100%" }}>
+        <Item >
           <Grid
             item
             xs={12}
-            sx={{ height: "60px", display: "flex" }}
+            sx={{ height: "90px", display: "flex",paddingTop:"10px" }}
             justifyContent={"center"}
           >
             <Typography gutterBottom variant="h4" component="div" textTransform={"capitalize"}>
@@ -61,7 +61,7 @@ function CardsPage({ Item, pokemonData, likedItems, setLikedItems }) {
                 pokemonData.abilities.map((a) => (
                   <Grid item xs>
                     <Item sx={{ bgcolor: "warning.light" }}>
-                      <Typography gutterBottom variant="body2" component="div">
+                      <Typography gutterBottom textTransform={"capitalize"} variant="body2" component="div">
                         {a.ability.name}
                       </Typography>
                     </Item>
@@ -74,7 +74,7 @@ function CardsPage({ Item, pokemonData, likedItems, setLikedItems }) {
                 pokemonData.types.map((t) => (
                   <Grid xs item >
                     <Item sx={{ bgcolor: "warning.dark" }}>
-                      <Typography gutterBottom variant="body2" component="div">
+                      <Typography gutterBottom variant="body2" textTransform={"capitalize"} component="div">
                         {t.type.name}
                       </Typography>
                     </Item>

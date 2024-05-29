@@ -3,6 +3,9 @@ import { Grid, Typography } from "@mui/material";
 import LikedCard from "./LikedCard";
 
 function LikedPage({ Item, likedItems }) {
+
+  //On clicking the heart shaped icon from Header , all the liked pokemon will be displayed from here
+  
   return (
     <Grid
       container

@@ -25,10 +25,9 @@ function DisplayBlock({display,setDisplay}) {
     color: theme.palette.text.secondary,
   }));
   const fetchApi = async (id) => {
-    const url = "https://pokeapi.co/api/v2/pokemon";
-    try {
+    const url = "https://pokeapi.co/api/v2/pokemon";          //api call using axios , random id is fetched 
+    try {                                                     //using Math.random() in useEffect where this function is called
       const { data } = await axios.get(`${url}/${id}`);
-      console.log(data.types[0].type.name);
       setPokemonData({
         name: data.name,
         abilities: data.abilities,
@@ -37,15 +36,13 @@ function DisplayBlock({display,setDisplay}) {
         img: data.sprites.other.dream_world,
         id: data.id,
       });
-      console.log();
     } catch (e) {
       console.error(e);
       alert("Failed to fetch pokemon data");
     }
   };
-  useEffect(() => {
-    const number = Math.trunc(Math.random() * 1031) + 1;
-    console.log(number);
+  useEffect(() => {                                         //everytime a new pokemon is "liked" or "dislike"
+    const number = Math.trunc(Math.random() * 1031) + 1;    //this useEffect will re render generating a new id
     fetchApi(number);
     console.log(pokemonData);
   }, [likedItems]);

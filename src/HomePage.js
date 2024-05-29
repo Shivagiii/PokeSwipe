@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import {  Grid, Typography,Button } from "@mui/material";
 
 function HomePage({Item,setDisplay,setLikedItems}) {
-  useEffect(()=>{
-    setLikedItems([]);
+  useEffect(()=>{                //on clicking PokeSwipe in header , all liked items will be refreshed   
+    setLikedItems([]);           // and home page will open 
   },[])
 
   return (
@@ -20,6 +20,12 @@ function HomePage({Item,setDisplay,setLikedItems}) {
         <Typography gutterBottom variant="h5" component="div">
           Pokemon appear one at a time.Choose "Like" or "Dislike" button to
           build your favorite team
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          To view your team, click on the liked button on top left side 
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+         To build a new team , just click on "PokeSwipe" above .
         </Typography>
       </Item>
     </Grid>

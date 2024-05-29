@@ -11,14 +11,16 @@ function Header({ setDarkMode, isDarkMode, setDisplay, display }) {
 
   return (
     <header className="App-header">
-      {display === "liked" ? (
-        <ArrowBackRoundedIcon onClick={() => setDisplay("swipe")} />
+      {display === "liked" ? (                                            //Conditional rendering used for displaying 
+        <ArrowBackRoundedIcon onClick={() => setDisplay("swipe")} />      //icons on the header
       ) : display === "swipe" ? (
         <FavoriteTwoToneIcon onClick={() => setDisplay("liked")} />
       ) : (
         <></>
-      )}
-      <p onClick={() => setDisplay("home")}>PokeSwipe</p>
+      )}    
+      <p onClick={() => setDisplay("home")}>                               
+        PokeSwipe
+        </p>                   
       <div>
         <FormControlLabel
           onChange={handleChange}

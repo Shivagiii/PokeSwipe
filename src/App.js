@@ -7,18 +7,18 @@ import DisplayBlock from "./DisplayBlock";
 
 function App() {
   const [isDarkMode, setDarkMode] = useState(false);
-  const [display, setDisplay] = useState("home");
+  const [display, setDisplay] = useState("home");         //state to handle which block should be displayed
 
   const darkTheme = createTheme({
     palette: {
-      mode: isDarkMode ? "dark" : "light", // handle the dark mode state on toggle
+      mode: isDarkMode ? "dark" : "light", // handling the dark mode state on toggle
     },
   });
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div className="App">
-        <Header
+        <Header                                   //lifting state up here so that dark mode can be viewed everywhere
           setDarkMode={setDarkMode}
           isDarkMode={isDarkMode}
           setDisplay={setDisplay}
