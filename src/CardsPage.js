@@ -48,7 +48,7 @@ function CardsPage({ Item, pokemonData, likedItems, setLikedItems }) {
           <Grid
             item
             xs={12}
-            sx={{ height: "90px", display: "flex",paddingTop:"10px" }}
+            sx={{ height: "70px", display: "flex",paddingTop:"10px" }}
             justifyContent={"center"}
           >
             <Typography gutterBottom variant="h4" component="div" textTransform={"capitalize"}>
